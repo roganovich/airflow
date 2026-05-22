@@ -537,7 +537,7 @@ def main():
     else:
         # Если файл не указан, генерируем имя по умолчанию
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = f"generated_logs_{timestamp}{file_ext}"
+        output_file = f"/opt/airflow/data/generated_logs_{timestamp}{file_ext}"
     
     start_time = time.time()
     lines_generated = 0

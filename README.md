@@ -1,5 +1,9 @@
 # Apache AirFlow
 
+## Установка
+Делаем все по инструкции
+https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#fetching-docker-compose-yaml
+
 ## Запуск в Docker с Apache Airflow
 
 Проект включает Docker-конфигурацию для запуска Apache Airflow с автоматической генерацией логов через DAG.
@@ -9,7 +13,7 @@
 ```
 .
 ├── Dockerfile                    # Docker образ с Airflow и log_generator.py
-├── docker-compose.yml           # Docker Compose конфигурация
+├── docker compose.yml           # Docker Compose конфигурация
 ├── requirements.txt             # Python зависимости
 ├── scripts/
 │   └── entrypoint.sh           # Скрипт инициализации Airflow
@@ -23,12 +27,12 @@
 
 1. **Сборка и запуск контейнеров:**
    ```bash
-   docker-compose up -d --build
+   docker compose up -d --build
    ```
 
 2. **Проверка статуса:**
    ```bash
-   docker-compose ps
+   docker compose ps
    ```
 
 3. **Доступ к Airflow UI:**
@@ -38,14 +42,18 @@
 
 4. **Остановка контейнеров:**
    ```bash
-   docker-compose down
+   docker compose down
    ```
+5. Выполнить вход в контейнер
+```bash
+docker exec -it airflow-airflow-dag-processor-1 bash
+```
 
 ### Мониторинг
 
 - **Airflow UI**: http://localhost:8080
 - **Flower (Celery monitoring)**: http://localhost:5555
-- **Логи контейнеров**: `docker-compose logs -f [service_name]`
+- **Логи контейнеров**: `docker compose logs -f [service_name]`
 
 ### Конфигурация базы данных
 
